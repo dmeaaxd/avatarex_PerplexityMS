@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package tech_ex;
+
+service ChatService {
+    rpc Chat(ChatRequest) returns (ChatResponse);
+}
+
+message Message {
+    string role = 1;
+    string content = 2;
+}
+
+message ChatRequest {
+    repeated Message messages = 1;
+    string model = 2;
+    int32 max_tokens = 3;
+    float temperature = 4;
+    string api_token = 5;
+}
+
+message ChatResponse {
+    bool success = 1;
+    Data data = 2;
+    float execution_time = 3;
+}
+
+message Data {
+    string message = 1;
+    string error = 2;
+}

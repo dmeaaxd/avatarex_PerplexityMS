@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  chat_service:
+    build: .
+    ports:
+      - "50051:50051"
+    volumes:
+      - ./logs:/app/logs
+
